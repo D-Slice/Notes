@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center centered mt-3">
+    <form [formGroup]="form"  (keyup)="validation(form)">
+        <div class="row">
+            <div class="col-md-6 pb-4">
+                <input formControlName="first_name" type="text" placeholder="First Name" class="form-control">
+                <div *ngIf="form.get('first_name')?.errors && form.get('first_name')?.touched == true" class="alert alert-danger mt-3">Please enter a name between 3 and 10 characters</div>
+            </div>
+            <div class="col-md-6 pb-4">
+                <input formControlName="last_name" type="text" placeholder="Last Name" class="form-control">
+                <div *ngIf="form.get('last_name')?.errors && form.get('last_name')?.touched == true" class="alert alert-danger mt-3">Please enter a name between 3 and 10 characters</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <input formControlName="email" type="email" placeholder="Email" class="form-control">
+                <div *ngIf="form.get('email')?.errors && form.get('email')?.touched == true" class="alert alert-danger mt-3">Please enter a valid Email</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <input formControlName="age" type="number" placeholder="Age" class="form-control">
+                <div *ngIf="form.get('age')?.errors && form.get('age')?.touched == true" class="alert alert-danger mt-3">You must be 18 years old or older</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <input [(ngModel)]="password" formControlName="password" type="password" placeholder="Password" class="form-control password">
+                <div *ngIf="form.get('password')?.errors && form.get('password')?.touched == true" class="alert alert-danger mt-3">Password must be between 6-16 characters, has at least a number, and at least a special character</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <input [(ngModel)]="confirmPassword" formControlName="confirmPassword" type="password" placeholder="Confirm Password" class="form-control" [attr.disabled]="form.get('password')?.errors">
+                <div *ngIf="confirmPassword != password && form.get('confirmPassword')?.touched == true" class="alert alert-danger mt-3">Password doesn't match</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <button class="w-100 bg-info button" [attr.disabled]="confirmPassword != password" routerLink="" >Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>

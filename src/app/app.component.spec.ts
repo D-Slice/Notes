@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+declare var $: any;  
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
