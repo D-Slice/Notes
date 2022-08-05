@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container d-flex justify-content-center align-items-center centered mt-3">
+    <form [formGroup]="form" (keyup)="validation(form)">
+        <div class="row">
+            <div class="col-md-12 pb-4">
+                <input formControlName="email" type="email" placeholder="Email" class="form-control">
+                <div *ngIf="form.get('email')?.errors && form.get('email')?.touched == true" class="alert alert-danger mt-3">Please enter a valid name</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <input formControlName="password" type="password" placeholder="Password" class="form-control">
+                <div *ngIf="form.get('password')?.errors && form.get('password')?.touched == true" class="alert alert-danger mt-3">Please enter your password</div>
+            </div>
+            <div class="col-md-12 pb-4">
+                <button class="w-100 bg-info button" disabled>Login</button>
+            </div>
+        </div>
+    </form>
+</div>
